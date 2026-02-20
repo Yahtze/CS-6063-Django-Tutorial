@@ -1,0 +1,21 @@
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Django
+*.log
+db.sqlite3
+media
+managed.py
+
+# OS files
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+eb-virt/
