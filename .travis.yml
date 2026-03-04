@@ -12,6 +12,7 @@ env:
 
 before_install:
   - pip install --upgrade pip
+  - pip install --upgrade awscli
 
 install:
   - pip install -r requirements.txt
@@ -25,6 +26,12 @@ script:
   - coverage run --source='polls' manage.py test
   - coverage report
   - coveralls
+
+before_deploy:
+  - echo "Deploying to Elastic Beanstalk"
+  - echo "AWS Region: $AWS_DEFAULT_REGION"
+  - echo "Bucket Name: elasticbeanstalk-us-west-2-908324163690"
+  - aws s3 ls s3://elasticbeanstalk-us-west-2-908324163690 --region us-west-2
 
 deploy:
   provider: elasticbeanstalk
